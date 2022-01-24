@@ -42,6 +42,10 @@ import { PlistViviendaComponent } from './vivienda/plist-vivienda/plist-vivienda
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
+import { SessionResolver } from './resolve/session.resolve';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -86,13 +90,17 @@ import { MenuComponent } from './menu/menu.component';
     FooterComponent,
     HeaderComponent,
     MenuComponent,
+    LoginComponent,
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [SessionResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
