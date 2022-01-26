@@ -1,1 +1,65 @@
 <p>login works!</p>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-4">
+            <div class="bg-light mt-5 p-5">
+                <img class="my-3" src="assets/img/wildCartLogo100.png" width="100">
+                <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
+                    <h3>Inicio de sesión</h3>
+                    <a class="btn btn-outline-dark  btn-lg btn-block" href="/users/googleauth" role="button" style="text-transform:none">
+                        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                        Inicia sesión con Google
+                      </a>
+                    <div class="col-12 text-start">
+                        <label for="username" class="form-label">Nombre de usuario</label>
+                        <div class="input-group has-validation">
+                            
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+
+                            <input type="text" formControlName="login" id="username" class="form-control"
+                                placeholder="Nombre de usuario"
+                                [class.is-invalid]="formularioLogin.get('login')!.dirty && formularioLogin.get('login')!.invalid">
+                            <div class="invalid-feedback"
+                                *ngIf="!formularioLogin.get('login').errors?.minlength || formularioLogin.get('login').dirty">
+                                La longitud mínima es 5
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label for="username" class="form-label">Contraseña</label>
+                        <div class="input-group has-validation mb-3">
+
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+                            <input type="password" formControlName="password" id="password" name="password"
+                                class="form-control" placeholder="Contraseña"
+                                [class.is-invalid]="formularioLogin.get('password')!.dirty && formularioLogin.get('password')!.invalid"
+                                required>
+
+                            <div class="invalid-feedback"
+                                *ngIf="!formularioLogin.get('password').errors?.required || formularioLogin.get('password').dirty">
+                                Por favor introduce la contraseña</div>
+                            <div class="invalid-feedback"
+                                *ngIf="!formularioLogin.get('password').errors?.minlength || formularioLogin.get('password').dirty">
+                                La longitud mínima es 5
+                            </div>
+                        </div>
+                        <a href="#"> Recordar contraseña</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Acceder</button>
+
+                   
+                </form>
+                <div class="mt-4">
+                <p >¿No tienes cuenta aún? <a href="#">Regístrate</a></p>
+            </div>
+                </div>
+        </div>
+    </div>
+</div>
