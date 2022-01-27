@@ -1,7 +1,7 @@
 export interface ICiudad {
     id: number,
     nombre: string,
-    zonas: number
+    comarcas: number
 }
 
 export interface ICiudad2Send {

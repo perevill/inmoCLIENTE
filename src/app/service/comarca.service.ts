@@ -1,17 +1,18 @@
-import { ICiudad, IPageCiudad, ICiudad2Send } from './../model/ciudad-interfaces';
+import { ICiudad, IPageCiudad, ICiudad2Send } from '../model/ciudad-interfaces';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_URL, httpOptions } from 'src/environments/environment';
+import { IComarca, IComarca2Send, IPageComarca } from '../model/comarca-interfaces';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class CiudadService {
+export class ComarcaService {
   constructor(private http: HttpClient) { }
 
-  sURL = API_URL + '/ciudad';
+  sURL = API_URL + '/comarca';
 
   getPage(
     rpp: number,
@@ -19,7 +20,7 @@ export class CiudadService {
     filter: string,
     order: string,
     direction: string
-  ): Observable<IPageCiudad> {
+  ): Observable<IPageComarca> {
     let strUrl: string = '';
     if (filter) {
       strUrl += '&filter=' + filter;
@@ -27,26 +28,26 @@ export class CiudadService {
     if (order) {
       strUrl += '&sort=' + order + ',' + direction;
     }
-    return this.http.get<IPageCiudad>(
+    return this.http.get<IPageComarca>(
       this.sURL + '/?page=' + (page - 1) + '&size=' + rpp + strUrl, httpOptions);
   }
 
-  getOne(id: number): Observable<ICiudad> {
-    return this.http.get<ICiudad>(this.sURL + '/' + id, httpOptions);
+  getOne(id: number): Observable<IComarca> {
+    return this.http.get<IComarca>(this.sURL + '/' + id, httpOptions);
   }
 
-  newOne(oCiudad: ICiudad2Send): Observable<ICiudad> {
-    return this.http.post<ICiudad>(
+  newOne(oComarca: IComarca2Send): Observable<IComarca> {
+    return this.http.post<IComarca>(
       this.sURL + '/',
-      oCiudad,
+      oComarca,
       httpOptions
     );
   }
 
-  updateOne(oCiudad: ICiudad2Send): Observable<ICiudad> {
-    return this.http.put<ICiudad>(
+  updateOne(oComarca: IComarca2Send): Observable<IComarca> {
+    return this.http.put<IComarca>(
       this.sURL + '/',
-      oCiudad,
+      oComarca,
       httpOptions
     );
   }

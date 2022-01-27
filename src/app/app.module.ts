@@ -15,11 +15,9 @@ import { ViewTipoviviendaComponent } from './tipovivienda/view-tipovivienda/view
 import { DeleteTipoviviendaComponent } from './tipovivienda/delete-tipovivienda/delete-tipovivienda.component';
 import { PlistTipoviviendaComponent } from './tipovivienda/plist-tipovivienda/plist-tipovivienda.component';
 import { EditTipoviviendaComponent } from './tipovivienda/edit-tipovivienda/edit-tipovivienda.component';
-import { EditCiudadComponent } from './ciudad/edit-ciudad/edit-ciudad.component';
 import { CreateCiudadComponent } from './ciudad/create-ciudad/create-ciudad.component';
 import { DeleteCiudadComponent } from './ciudad/delete-ciudad/delete-ciudad.component';
 import { ViewCiudadComponent } from './ciudad/view-ciudad/view-ciudad.component';
-import { PlistCiudadComponent } from './ciudad/plist-ciudad/plist-ciudad.component';
 import { EditZonaComponent } from './zona/edit-zona/edit-zona.component';
 import { CreateZonaComponent } from './zona/create-zona/create-zona.component';
 import { PlistZonaComponent } from './zona/plist-zona/plist-zona.component';
@@ -47,6 +45,9 @@ import { LoginComponent } from './login/login.component';
 import { SessionResolver } from './resolve/session.resolve';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { EditCiudadComponent } from './ciudad/edit-ciudad/edit-ciudad.component';
+import { PlistCiudadComponent } from './ciudad/plist-ciudad/plist-ciudad.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     MenuComponent,
     LoginComponent,
-    PopupComponent
+    PopupComponent,
+    ModalComponent
 
   ],
   imports: [
