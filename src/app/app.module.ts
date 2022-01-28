@@ -10,11 +10,7 @@ import { CreateUsuarioComponent } from './usuario/create-usuario/create-usuario.
 import { DeleteUsuarioComponent } from './usuario/delete-usuario/delete-usuario.component';
 import { ViewUsuarioComponent } from './usuario/view-usuario/view-usuario.component';
 import { PlistUsuarioComponent } from './usuario/plist-usuario/plist-usuario.component';
-import { CreateTipoviviendaComponent } from './tipovivienda/create-tipovivienda/create-tipovivienda.component';
-import { ViewTipoviviendaComponent } from './tipovivienda/view-tipovivienda/view-tipovivienda.component';
-import { DeleteTipoviviendaComponent } from './tipovivienda/delete-tipovivienda/delete-tipovivienda.component';
-import { PlistTipoviviendaComponent } from './tipovivienda/plist-tipovivienda/plist-tipovivienda.component';
-import { EditTipoviviendaComponent } from './tipovivienda/edit-tipovivienda/edit-tipovivienda.component';
+import { CreateTipoViviendaComponent } from './tipovivienda/create-tipovivienda/create-tipovivienda.component';
 import { CreateCiudadComponent } from './ciudad/create-ciudad/create-ciudad.component';
 import { DeleteCiudadComponent } from './ciudad/delete-ciudad/delete-ciudad.component';
 import { ViewCiudadComponent } from './ciudad/view-ciudad/view-ciudad.component';
@@ -48,6 +44,10 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { EditCiudadComponent } from './ciudad/edit-ciudad/edit-ciudad.component';
 import { PlistCiudadComponent } from './ciudad/plist-ciudad/plist-ciudad.component';
 import { ModalComponent } from './modal/modal.component';
+import { DeleteTipoViviendaComponent } from './tipovivienda/delete-tipovivienda/delete-tipovivienda.component';
+import { EditTipoViviendaComponent } from './tipovivienda/edit-tipovivienda/edit-tipovivienda.component';
+import { PlistTipoViviendaComponent } from './tipovivienda/plist-tipovivienda/plist-tipovivienda.component';
+import { ViewTipoViviendaComponent } from './tipovivienda/view-tipovivienda/view-tipovivienda.component';
 
 
 @NgModule({
@@ -59,11 +59,11 @@ import { ModalComponent } from './modal/modal.component';
     DeleteUsuarioComponent,
     ViewUsuarioComponent,
     PlistUsuarioComponent,
-    CreateTipoviviendaComponent,
-    ViewTipoviviendaComponent,
-    DeleteTipoviviendaComponent,
-    PlistTipoviviendaComponent,
-    EditTipoviviendaComponent,
+    CreateTipoViviendaComponent,
+    ViewTipoViviendaComponent,
+    DeleteTipoViviendaComponent,
+    PlistTipoViviendaComponent,
+    EditTipoViviendaComponent,
     EditCiudadComponent,
     CreateCiudadComponent,
     DeleteCiudadComponent,
