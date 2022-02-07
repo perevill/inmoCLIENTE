@@ -1,3 +1,4 @@
+import { UsuarioEditComponent } from './usuario/edit-usuario/edit-usuario.component';
 import { PopupComponent } from './popup/popup.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -5,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { EditUsuarioComponent } from './usuario/edit-usuario/edit-usuario.component';
 import { CreateUsuarioComponent } from './usuario/create-usuario/create-usuario.component';
 import { DeleteUsuarioComponent } from './usuario/delete-usuario/delete-usuario.component';
 import { ViewUsuarioComponent } from './usuario/view-usuario/view-usuario.component';
@@ -54,8 +54,8 @@ import { ViewTipoViviendaComponent } from './tipovivienda/view-tipovivienda/view
   declarations: [
     AppComponent,
     HomeComponent,
-    EditUsuarioComponent,
     CreateUsuarioComponent,
+    UsuarioEditComponent,
     DeleteUsuarioComponent,
     ViewUsuarioComponent,
     PlistUsuarioComponent,

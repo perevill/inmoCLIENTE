@@ -1,0 +1,27 @@
+a.button3 {
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#F18805;
+    text-align:center;
+    transition: all 0.2s;
+    }
+    a.button3:hover{
+    background-color:#D95D39;
+    }
+    .navbar .navbar-nav .nav-link:hover {
+        background-color: #D95D39;
+        color: #000000;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+     }
+
+     

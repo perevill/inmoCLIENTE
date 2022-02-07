@@ -1,3 +1,5 @@
+import { CreateUsuarioComponent } from './usuario/create-usuario/create-usuario.component';
+import { UsuarioEditComponent } from './usuario/edit-usuario/edit-usuario.component';
 import { PlistCiudadComponent } from './ciudad/plist-ciudad/plist-ciudad.component';
 import { CreateCiudadComponent } from './ciudad/create-ciudad/create-ciudad.component';
 import { NgModule } from '@angular/core';
@@ -54,6 +56,13 @@ const routes: Routes = [
   { path: 'zona/plist', component: PlistZonaComponent, resolve: { message: SessionResolver } },
   { path: 'zona/view/:id', component: ViewZonaComponent, resolve: { message: SessionResolver } },
   { path: 'zona/delete/:id', component: DeleteZonaComponent, resolve: { message: SessionResolver } },
+//Usuario component
+{ path: 'usuario/create', component: CreateUsuarioComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/edit/:id', component: UsuarioEditComponent, resolve: { message: SessionResolver } },
+{ path: 'zona/plist', component: PlistZonaComponent, resolve: { message: SessionResolver } },
+{ path: 'zona/view/:id', component: ViewZonaComponent, resolve: { message: SessionResolver } },
+{ path: 'zona/delete/:id', component: DeleteZonaComponent, resolve: { message: SessionResolver } },
+
 
 
 ];

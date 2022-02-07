@@ -1,1 +1,65 @@
-<p>menu works!</p>
+<nav class="navbar navbar-expand-sm bg-white navbar-light justify-content-center ">
+        <ul class="navbar-nav ">
+            
+            <li class="nav-item  border-bottom border-dark p-3">
+                <a class="nav-link text-dark" [class.active]="strUrl=='/home'" aria-current="page"
+                [routerLink]="['/home']">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item border-bottom p-3 border-dark dropdown" *ngIf="oUsuarioSession?.tipousuario.id==1">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Administración
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" [class.active]="strUrl=='/ciudad/plist'"
+                  [routerLink]="['/ciudad/plist']">Ciudad</a>
+                  <a class="dropdown-item" [class.active]="strUrl=='/comarca/plist'"
+                  [routerLink]="['/comarca/plist']">Comarca</a>
+                  <a class="dropdown-item" [class.active]="strUrl=='/zona/plist'"
+                  [routerLink]="['/zona/plist']">Zona</a>
+                  <a class="dropdown-item" [class.active]="strUrl=='/vivienda/plist'"
+                  [routerLink]="['/vivienda/plist']">Vivienda</a>
+                  <a class="dropdown-item" [class.active]="strUrl=='/usuario/plist'"
+                  [routerLink]="['/usuario/plist']">Usuario</a>
+                  <a class="dropdown-item" [class.active]="strUrl=='/tipovivienda/plist'"
+                  [routerLink]="['/tipovivienda/plist']">Tipo de vivienda</a>
+                  
+
+                </div>
+              </li>
+            
+            <li class="nav-item border-bottom p-3 border-dark" *ngIf="!oUsuarioSession">
+                
+                    
+                    <a href="something" class="button3"> <i class="far fa-plus-square"></i> Anúnciate gratis</a>
+                
+            </li>
+            <li class="nav-item border-bottom p-3 border-dark" *ngIf="oUsuarioSession">
+                
+                    
+                <a [class.active]="strUrl=='/vivienda/create'"
+                [routerLink]="['/vivienda/create']" class="button3"> <i class="far fa-plus-square"></i> Publicar anuncio</a>
+            
+        </li>
+        
+            <li class="nav-item border-bottom p-3 border-dark" *ngIf="!oUsuarioSession">
+                <a class="nav-link text-dark"[class.active]="strUrl=='/login'" [routerLink]="['/login']">
+                    <i class="fas fa-user"></i> Iniciar sesión 
+                </a>
+            </li>
+            <li class="nav-item border-bottom p-3 border-dark" *ngIf="oUsuarioSession">
+                <a class="nav-link text-dark" href="" p>
+                    <i class="fas fa-user"></i> {{oUsuarioSession.nombre + " " + oUsuarioSession.apellido1 + " (" +
+                    oUsuarioSession.tipousuario.nombre+")"}} 
+                </a>
+            </li>
+            <li class="nav-item border-bottom p-3 border-dark" *ngIf="oUsuarioSession">
+                <a class="nav-link text-dark"  [class.active]="strUrl=='/logout'" [routerLink]="['/logout']">
+                    <i class="fas fa-sign-out-alt"></i>    Cerrar sesión
+                </a>
+            </li>
+            
+            
+        </ul>
+    </nav>
