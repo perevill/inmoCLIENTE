@@ -26,6 +26,9 @@ import { DeleteZonaComponent } from './zona/delete-zona/delete-zona.component';
 import { ViewZonaComponent } from './zona/view-zona/view-zona.component';
 import { PlistZonaComponent } from './zona/plist-zona/plist-zona.component';
 import { EditZonaComponent } from './zona/edit-zona/edit-zona.component';
+import { PlistUsuarioComponent } from './usuario/plist-usuario/plist-usuario.component';
+import { ViewUsuarioComponent } from './usuario/view-usuario/view-usuario.component';
+import { DeleteUsuarioComponent } from './usuario/delete-usuario/delete-usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
@@ -59,9 +62,9 @@ const routes: Routes = [
 //Usuario component
 { path: 'usuario/create', component: CreateUsuarioComponent, resolve: { message: SessionResolver } },
 { path: 'usuario/edit/:id', component: UsuarioEditComponent, resolve: { message: SessionResolver } },
-{ path: 'zona/plist', component: PlistZonaComponent, resolve: { message: SessionResolver } },
-{ path: 'zona/view/:id', component: ViewZonaComponent, resolve: { message: SessionResolver } },
-{ path: 'zona/delete/:id', component: DeleteZonaComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/plist', component: PlistUsuarioComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/view/:id', component: ViewUsuarioComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/delete/:id', component: DeleteUsuarioComponent, resolve: { message: SessionResolver } },
 
 
 

@@ -58,7 +58,7 @@ export class CreateUsuarioComponent implements OnInit {
       direccion: ['', [Validators.required, Validators.minLength(5)]],
       codpostal: ['', [Validators.required, Validators.minLength(5)]],
       apellido1: ['', [Validators.required, Validators.minLength(5)]],
-      apellido2: ['', [Validators.required, Validators.minLength(5)]],
+      apellido2: ['', ],
       login: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.minLength(5)]],
       tusuario: ['', [Validators.required, Validators.maxLength(1)]],
