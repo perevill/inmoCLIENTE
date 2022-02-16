@@ -32,6 +32,15 @@ export class ZonaService {
       this.sURL + '/?page=' + (page - 1) + '&size=' + rpp + strUrl, httpOptions);
   }
 
+
+  getPagebyComarca(
+    idcomarca: number,
+    
+  ): Observable<IPageZona> {
+   
+    return this.http.get<IPageZona>(
+      this.sURL + '/comarca?comarca=' + idcomarca, httpOptions);
+  }
   getOne(id: number): Observable<IZona> {
     return this.http.get<IZona>(this.sURL + '/' + id, httpOptions);
   }

@@ -52,6 +52,10 @@ export class TipoViviendaService {
     );
   }
 
+  getAll(): Observable<ITipoVivienda[]> {
+    return this.http.get<ITipoVivienda[]>(this.sURL + '/all', httpOptions);
+  }
+
   removeOne(id: number): Observable<number> {
     return this.http.delete<number>(this.sURL + '/' + id, httpOptions);
   }

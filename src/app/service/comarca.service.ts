@@ -32,6 +32,16 @@ export class ComarcaService {
       this.sURL + '/?page=' + (page - 1) + '&size=' + rpp + strUrl, httpOptions);
   }
 
+  getPagebyCiudad(
+    idciudad: number
+    
+  ): Observable<IPageComarca> {
+    
+    return this.http.get<IPageComarca>(
+      this.sURL + '/ciudad?ciudad=' + idciudad, httpOptions);
+  }
+  
+
   getOne(id: number): Observable<IComarca> {
     return this.http.get<IComarca>(this.sURL + '/' + id, httpOptions);
   }

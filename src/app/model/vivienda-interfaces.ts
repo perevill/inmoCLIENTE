@@ -11,10 +11,11 @@ export interface IVivienda {
     m2construidos: number,
     zona: IZona,
     tipovivienda: ITipoVivienda,
-    anunciante:IUsuario,
+    usuario:IUsuario,
     habitaciones:number,
     exterior: boolean,
     descripcion:string,
+    antiguedad: number,
     conservacion:string,
     comprar:boolean,
     alquilar: boolean,
@@ -36,10 +37,13 @@ export interface IVivienda2Send {
     habitaciones:number,
     exterior: boolean,
     descripcion:string,
+    antiguedad: number,
+
     conservacion:string,
     comprar:boolean,
     alquilar: boolean,
     obranueva: boolean,
+    
 }
 
 export interface IPageVivienda {

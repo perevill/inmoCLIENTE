@@ -1,1 +1,79 @@
 <app-menu></app-menu>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+</script>
+
+
+<div class="container">
+    <div class="col-12 mt-5 pt-5 mb-5"
+        style="background-image:url(https://content.r9cdn.net/rimg/dimg/d8/8b/88187b1e-city-4394-54c8b647.jpg?width=1200&height=630&crop=true);background-size: 100% auto; ">
+        <div class="col 8 m-5 p-3 bg-warning justify-content-center ">
+            <h2 class="text-center">¿A qué esperas para encontrar la casa de tus sueños?</h2>
+            <div class="col-8">
+                <form [formGroup]="oForm" (ngSubmit)="onSubmit()" class="mt-3">
+                    <div class="row">
+
+                    <div class="col-3 container-fluid">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="accion" id="alquilar" value="alquilar" formControlName="accion">
+                            <label class="form-check-label" for="alquilar">
+                                Alquilar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="accion" id="comprar" value="comprar" checked formControlName="accion">
+                            <label class="form-check-label" for="comprar">
+                                Comprar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="accion" value="obranueva" id="obranueva" formControlName="accion">
+                            <label class="form-check-label" for="obranueva">
+                                Obra nueva
+                            </label>
+                        </div>
+                    </div>
+            
+            <div class="col-3 container-fluid" style="float:right;">
+                
+                <input class="form-control mb-1" list="ciudades" id="ciudad"
+                    placeholder="Ciudad -- Escribe para buscar" [(ngModel)]="ciudad" name="ciudad" (change)="getComarcas()" formControlName="ciudad">
+                <datalist id="ciudades">
+                    <option *ngFor="let ciudad of aCiudades" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
+                    
+                </datalist>
+                <input class="form-control mb-1" list="comarcas" id="comarca" placeholder="Comarca -- Escribe para buscar"[(ngModel)]="comarca" name="comarca" (change)="getZonas()" formControlName="comarca" >
+                <datalist id="comarcas"> 
+                    <option *ngFor="let comarca of aComarcas" value="{{comarca.id}}">{{comarca.nombre}}</option>                    
+                </datalist>
+
+
+                <input class="form-control mb-1" list="zonas" id="zona" placeholder="Zona -- Escribe para buscar" formControlName="zona" >
+                <datalist id="zonas">
+                    <option *ngFor="let zona of aZonas" value="{{zona.id}}">{{zona.nombre}}</option>                    
+
+                </datalist>
+                <button  [routerLink]="['/busqueda']" type="submit" class="btn btn-danger" style="float:right;">Buscar...</button>
+            </div>
+            </div>
+            <div class="col-3 container-fluid">
+
+                
+            </div>
+            <div class="col-3 container-fluid">
+
+            </div>
+            
+            
+            <br>
+            <br>
+            </form>
+        </div>
+        
+    </div>
+    <br>
+</div>
+
+<app-footer></app-footer>

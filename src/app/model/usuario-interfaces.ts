@@ -19,6 +19,12 @@ export interface IUsuario {
     viviendas:number
 }
 
+export interface formdata {
+    accion:string,
+    ciudad:number,
+    comarca:number,
+    zona:number
+}
 export interface IPageUsuario {
     content: IUsuario[];
     totalElements: number,

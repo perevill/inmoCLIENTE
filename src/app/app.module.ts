@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout.component';
 import { UsuarioEditComponent } from './usuario/edit-usuario/edit-usuario.component';
 import { PopupComponent } from './popup/popup.component';
 import { NgModule } from '@angular/core';
@@ -48,6 +49,7 @@ import { DeleteTipoViviendaComponent } from './tipovivienda/delete-tipovivienda/
 import { EditTipoViviendaComponent } from './tipovivienda/edit-tipovivienda/edit-tipovivienda.component';
 import { PlistTipoViviendaComponent } from './tipovivienda/plist-tipovivienda/plist-tipovivienda.component';
 import { ViewTipoViviendaComponent } from './tipovivienda/view-tipovivienda/view-tipovivienda.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -94,7 +96,10 @@ import { ViewTipoViviendaComponent } from './tipovivienda/view-tipovivienda/view
     MenuComponent,
     LoginComponent,
     PopupComponent,
-    ModalComponent
+    ModalComponent,
+    BusquedaComponent,
+    FooterComponent,
+    LogoutComponent
 
   ],
   imports: [

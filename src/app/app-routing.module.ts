@@ -1,3 +1,4 @@
+import { BusquedaComponent } from './busqueda/busqueda.component';
 import { CreateUsuarioComponent } from './usuario/create-usuario/create-usuario.component';
 import { UsuarioEditComponent } from './usuario/edit-usuario/edit-usuario.component';
 import { PlistCiudadComponent } from './ciudad/plist-ciudad/plist-ciudad.component';
@@ -29,6 +30,9 @@ import { EditZonaComponent } from './zona/edit-zona/edit-zona.component';
 import { PlistUsuarioComponent } from './usuario/plist-usuario/plist-usuario.component';
 import { ViewUsuarioComponent } from './usuario/view-usuario/view-usuario.component';
 import { DeleteUsuarioComponent } from './usuario/delete-usuario/delete-usuario.component';
+import { CreateViviendaComponent } from './vivienda/create-vivienda/create-vivienda.component';
+import { PlistViviendaComponent } from './vivienda/plist-vivienda/plist-vivienda.component';
+import { ViewViviendaComponent } from './vivienda/view-vivienda/view-vivienda.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
@@ -65,6 +69,15 @@ const routes: Routes = [
 { path: 'usuario/plist', component: PlistUsuarioComponent, resolve: { message: SessionResolver } },
 { path: 'usuario/view/:id', component: ViewUsuarioComponent, resolve: { message: SessionResolver } },
 { path: 'usuario/delete/:id', component: DeleteUsuarioComponent, resolve: { message: SessionResolver } },
+//Vivienda component
+{ path: 'vivienda/create', component: CreateViviendaComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/edit/:id', component: UsuarioEditComponent, resolve: { message: SessionResolver } },
+{ path: 'vivienda/plist', component: PlistViviendaComponent, resolve: { message: SessionResolver } },
+{ path: 'vivienda/view/:id', component: ViewViviendaComponent, resolve: { message: SessionResolver } },
+{ path: 'usuario/delete/:id', component: DeleteUsuarioComponent, resolve: { message: SessionResolver } },
+//Busqueda
+{ path: 'busqueda', component: BusquedaComponent, resolve: { message: SessionResolver } },
+
 
 
 

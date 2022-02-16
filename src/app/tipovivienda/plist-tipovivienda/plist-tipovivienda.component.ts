@@ -41,6 +41,7 @@ export class PlistTipoViviendaComponent implements OnInit {
   strFilteredMessage: string = '';
   subjectFiltro$ = new Subject();
   usuario: IUsuario;
+  todos:ITipoVivienda[];
 
   constructor(
     private oRoute: ActivatedRoute,
@@ -59,8 +60,17 @@ export class PlistTipoViviendaComponent implements OnInit {
       .subscribe(() => this.getPage());
     this.page = 1;
     this.getPage();
+    this.getAll();
   }
-
+  
+  getAll = () => {
+    this.oTipoViviendaService
+      .getAll()
+      .subscribe((oData: ITipoVivienda[]) => {
+        this.todos = oData;
+      });
+      console.log(this.todos);
+  };
   getPage = () => {
     this.oTipoViviendaService
       .getPage(

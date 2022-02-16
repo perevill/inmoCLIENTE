@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { API_URL, environment, httpOptions } from 'src/environments/environment';
-
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { catchError, retry, shareReplay, tap } from 'rxjs/operators';
 import { IPageUsuario, IUsuario, IUsuario2Send } from '../model/usuario-interfaces';

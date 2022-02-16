@@ -1,0 +1,29 @@
+#id_work_days input[type="checkbox"] {
+    display: none;
+  }
+  
+  #id_work_days span {
+    display: inline-block;
+    padding: 7px;
+    text-transform: uppercase;
+    border: 3px solid #D95D39;
+    border-radius: 3px;
+    color: #D95D39;
+  }
+  
+  #id_work_days input[type="checkbox"]:checked + span {
+    background-color: #F18805;
+    color: black;
+  }
+
+  .bg-custom-1 {
+    background-color: #F18805;
+
+
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+  

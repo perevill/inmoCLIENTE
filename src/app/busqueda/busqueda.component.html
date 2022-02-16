@@ -1,0 +1,122 @@
+
+   
+    
+
+    <app-menu></app-menu>
+
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+                <form [formGroup]="oForm"  (ngSubmit)="onSubmit()" class="border text-center p-1">
+                    <input class="btn-check" type="radio" name="accion" id="comprar" value="comprar" checked formControlName="accion" >
+                    <label class="btn btn-outline-warning " for="comprar">Comprar</label>
+
+                    <input  class="btn-check"  type="radio" name="accion" id="alquilar" value="alquilar" formControlName="accion">
+                    <label class="btn btn-outline-warning " for="alquilar">Alquilar</label>
+
+                    <input  class="btn-check" type="radio" name="accion" value="obranueva" id="obranueva" formControlName="accion">
+                    <label class="btn btn-outline-warning" for="obranueva">Obra nueva</label>
+
+                    <select class="form-select mt-3 " aria-label="Default select example">
+                        <option selected>Tipo de vivienda</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+
+                    <select class="form-select mt-3" aria-label="Default select example">
+                        <option selected>Conservación</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <button type="button" class="btn btn-warning mb-3 mt-3">Habitaciones</button><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                        <label class="form-check-label" for="inlineCheckbox1">1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                        <label class="form-check-label" for="inlineCheckbox2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                        <label class="form-check-label" for="inlineCheckbox2">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                        <label class="form-check-label" for="inlineCheckbox2">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                        <label class="form-check-label" for="inlineCheckbox2">5</label>
+                    </div>
+                    <select class="form-select mt-3" aria-label="Default select example">
+                        <option selected>Antigüedad</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        <label class="form-check-label" for="flexCheckDefault">Profesional</label>
+                    </div>
+                    <label for="zona" class="form-label">Ciudad</label>
+                    <input class="form-control" list="ciudades" id="comarca"
+                        placeholder="Ciudad -- Escribe para buscar"  [(ngModel)]="ciudad" name="ciudad" (change)="getComarcas()" formControlname="ciudad">
+                        <datalist id="ciudades">
+                            <option *ngFor="let ciudad of aCiudades" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
+                            
+                        </datalist>
+                    <label for="comarca" class="form-label">Comarca</label>
+                    <input class="form-control" list="comarcas" id="comarca"
+                        placeholder="Comarca -- Escribe para buscar" [(ngModel)]="comarca" name="comarca" (change)="getZonas()" formControlname="comarca">
+                        <datalist id="comarcas"> 
+                            <option *ngFor="let comarca of aComarcas" value="{{comarca.id}}">{{comarca.nombre}}</option>                    
+                        </datalist>
+                    <label for="zona" class="form-label">Zona</label>
+                    <input class="form-control" list="zonas" id="zona" name="zona"
+                        placeholder="Zona -- Escribe para buscar" formControlname="zona">
+                        <datalist id="zonas">
+                            <option *ngFor="let zona of aZonas" value="{{zona.id}}">{{zona.nombre}}</option>                    
+        
+                        </datalist>
+
+                        <button type="button" type="submit" class="btn btn-warning mb-3 mt-3">Buscar</button>
+                </form>
+            </div>
+            <div class="col-8 ">
+                <div *ngFor="let fila of aViviendas" class="card mb-3" style="max-width: 750px;">
+                    <div class="row g-0  bg-custom-1">
+                        <div class="col-md-4">
+                            <img src="https://st3.idealista.com/news/archivos/styles/imagen_full/public/2018-02/plantio_mg_2945.jpg?sv=rPfmi5zl&itok=1FDk32X9"
+                                class="img-fluid rounded-start p-3" alt="...">
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="card-body">
+                                <h4 class="card-title"><a [routerLink]="['/vivienda/view/' + fila.id]">{{fila.tipovivienda.nombre}} en {{fila.ubicacion}}</a> </h4>
+                                <h3 class="card-title">{{fila.precio}} €</h3>
+                                <p class="card-text"><small class="text-muted">{{fila.habitaciones}} habitaciones
+                                        {{fila.m2construidos}} m² construidos </small></p>
+                                <p class="card-text">{{fila.descripcion}}</p>
+
+                                <p class="card-text"><small class="text-muted">TLF.{{fila.usuario.tlf}}</small></p>
+                                <div class="d-inline float-right">
+                                    <button type="button" class="btn btn-warning ">Contactar</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
