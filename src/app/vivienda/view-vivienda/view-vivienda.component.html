@@ -3,28 +3,71 @@
 
 <div class="container my-3">
 
-  <app-header [title]="'Vista de ' + strTitleSingular" >
-  </app-header>
 
   <div class="row justify-content-center">
-    <table class="table table-striped">
-      <tbody>
-        <tr>
-          <th> ID</th>
-          <td>{{oVivienda?.id}}</td>
-        </tr>
-        <tr>
-          <th>Nombre</th>
-          <td>{{oVivienda?.ubicacion}}</td>
-        </tr>
-        <tr>
-            <th>Ubicacion</th>
-            <td><div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q={{'{' + oVivienda?.ubicacion + '}'}}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">gps watches</a></iframe></div>
-</td>
-          </tr>
+    <div class="col-12">
+      <div class="row justify-content-center ">
+        <div class="col-8">
+          <h2>Vivienda en {{oVivienda.ubicacion}}, {{oVivienda.zona.comarca.ciudad.nombre}}</h2>
+          <p>{{oVivienda.zona.nombre}}, {{oVivienda.zona.comarca.nombre}}, {{oVivienda.zona.comarca.ciudad.nombre}}</p>
+        </div>
+        <div class="col-4">
+          <h2 style="display:inline">{{oVivienda.precio}}€ </h2><h2 style="display:inline" *ngIf='oVivienda.alquilar'>/al mes</h2>
+        </div>
+        <div class="col-12">
+          <div class="row justify-content-center ">
+            <div class="col-8">
+              <img class="img-fluid"
+                src="https://agenciamediterranea.com/wp-content/uploads/2019/01/comprar-vivienda-en-valencia-chalet.jpg" />
+            </div>
+            <div class="col-4">
+              <h4>Información sobre el vendedor</h4>
+              <p>Nombre: {{oVivienda.usuario.nombre}} </p>
+              <p> Apellido: {{oVivienda.usuario.apellido1}} </p>
+              <p>Métodos de contacto:</p>
+              <ul>
+                <li>Número de teléfono: {{oVivienda.usuario.tlf}}</li>
+                <li>Correo electrónico: {{oVivienda.usuario.email}}</li>
+              </ul>
+              <img class="img-fluid"
+              src="assets/Housemania-logos_transparentedit.png" />
+            </div>
+          </div>
+        </div>
 
-      </tbody>
-    </table>
+
+
+        <p class="border-bottom mt-3 border-dark p-3" style="display:inline"><i class="fa-solid fa-layer-group"></i> {{oVivienda.m2utiles}} m2 útiles | 
+        <i class="fa-solid fa-bed"></i> {{oVivienda.habitaciones}} habitaciones |
+        <i class="fa-solid fa-angles-up"></i> {{oVivienda.nplanta}}ª planta |
+          {{math.round(oVivienda.precio/oVivienda.m2construidos) }}€/m²<span *ngIf='oVivienda.alquilar'> al mes</span> </p>
+
+        
+
+
+
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row justify-content-center ">
+            <div class="col-8">
+              <h2>Descripción de la vivienda</h2>
+              <p>{{oVivienda.descripcion}}</p>
+            </div>
+            <div class="col-4">
+              <h2>Más características</h2>
+              <ul>
+                <li><i class="fa-solid fa-clock"></i> {{oVivienda.antiguedad}} años de antigüedad</li> 
+                <li *ngIf='oVivienda.exterior'><i class="fa-solid fa-cloud-sun"></i> Exterior</li> 
+                <li><i class="fa-solid fa-house-circle-check"></i>{{oVivienda.conservacion}}</li>
+                <li>Tipo de vivienda: {{oVivienda.tipovivienda.nombre}}</li> 
+                <li><i class="fa-solid fa-maximize"></i> {{oVivienda.m2construidos}} m²construidos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <div class="row justify-content-center">
       <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">

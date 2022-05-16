@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./view-vivienda.component.css']
 })
 export class ViewViviendaComponent implements OnInit {
+  math = Math;
 
   strEntity: string = "vivienda"
   strOperation: string = "view"
@@ -46,8 +47,11 @@ export class ViewViviendaComponent implements OnInit {
       .getOne(this.id)
       .subscribe((oData: IVivienda) => {
         this.oVivienda = oData;
+        
       });
   };
+
+ 
 
   goBack() {
     this.oLocation.back();
