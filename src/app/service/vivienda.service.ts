@@ -71,8 +71,12 @@ export class ViviendaService {
     return this.http.get<IVivienda>(this.sURL + "/" + id, httpOptions);
   }
 
-  newOne(oVivienda: IVivienda2Send): Observable<number> {
-    return this.http.post<number>(this.sURL + "/new", oVivienda, httpOptions);
+  newOne(oVivienda: IVivienda2Send): Observable<IVivienda> {
+    return this.http.post<IVivienda>(
+      this.sURL + '/',
+      oVivienda,
+      httpOptions
+    );
   }
 
   updateOne(oVivienda: IVivienda2Send): Observable<number> {

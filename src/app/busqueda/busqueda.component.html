@@ -10,14 +10,14 @@
 
             </div>
             <div class="col-2">
-                <form [formGroup]="oForm"  (ngSubmit)="onSubmit()" class="border text-center p-1">
-                    <input class="btn-check" type="radio" name="accion" id="comprar" value="comprar" checked formControlName="accion" >
+                <form class="border text-center p-1">
+                    <input class="btn-check" type="radio" name="accion" id="comprar" value="comprar" checked  >
                     <label class="btn btn-outline-warning " for="comprar">Comprar</label>
 
-                    <input  class="btn-check"  type="radio" name="accion" id="alquilar" value="alquilar" formControlName="accion">
+                    <input  class="btn-check"  type="radio" name="accion" id="alquilar" value="alquilar" >
                     <label class="btn btn-outline-warning " for="alquilar">Alquilar</label>
 
-                    <input  class="btn-check" type="radio" name="accion" value="obranueva" id="obranueva" formControlName="accion">
+                    <input  class="btn-check" type="radio" name="accion" value="obranueva" id="obranueva" >
                     <label class="btn btn-outline-warning" for="obranueva">Obra nueva</label>
 
                     <select class="form-select mt-3 " aria-label="Default select example">
@@ -90,28 +90,31 @@
                 </form>
             </div>
             <div class="col-8 ">
-                <div *ngFor="let fila of aViviendas" class="card mb-3" style="max-width: 750px;">
+                <div *ngFor="let fila of aViviendas;let i = index" class="card mb-3" style="max-width: 750px;">
                     <div class="row g-0  bg-custom-1">
-                        <div class="col-md-4">
-                            <img src="https://st3.idealista.com/news/archivos/styles/imagen_full/public/2018-02/plantio_mg_2945.jpg?sv=rPfmi5zl&itok=1FDk32X9"
+                        <div class="col-md-4 text-center">
+                            <img src="https://agenciamediterranea.com/wp-content/uploads/2019/01/comprar-vivienda-en-valencia-chalet.jpg"
                                 class="img-fluid rounded-start p-3" alt="...">
+                                <p>Zona: {{fila?.zona?.nombre}}</p>
+                                 <p>Comarca: {{fila?.zona?.comarca.nombre}}</p>
+                                 <p>Ciudad: {{fila?.zona?.comarca.ciudad.nombre}}</p>
                         </div>
                         <div class="col-md-8 ">
                             <div class="card-body">
-                                <h4 class="card-title"><a [routerLink]="['/vivienda/view/' + fila.id]">{{fila.tipovivienda.nombre}} en {{fila.ubicacion}}</a> </h4>
-                                <h3 class="card-title">{{fila.precio}} €</h3>
-                                <p class="card-text"><small class="text-muted">{{fila.habitaciones}} habitaciones
-                                        {{fila.m2construidos}} m² construidos </small></p>
-                                <p class="card-text">{{fila.descripcion}}</p>
+                                <h4 class="card-title"><a [routerLink]="['/vivienda/view/' + fila.id]">{{fila.tipovivienda?.nombre}} en {{fila?.ubicacion}}</a> </h4>
+                                <h3 class="card-title">{{fila?.precio}} €</h3>
+                                <p class="card-text"><small class="text-muted">{{fila?.habitaciones}} habitaciones
+                                        {{fila?.m2construidos}} m² construidos </small></p>
+                                <p class="card-text">{{fila?.descripcion}}</p>
 
-                                <p class="card-text"><small class="text-muted">TLF.{{fila.usuario.tlf}}</small></p>
+                                <p class="card-text"><small class="text-muted">TLF.{{fila?.usuario.tlf}}</small></p>
                                 <div class="d-inline float-right">
-                                    <button type="button" class="btn btn-warning ">Contactar</button>
 
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
 
 

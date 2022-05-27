@@ -94,9 +94,9 @@ export class EditComarcaComponent implements OnInit {
   update = (): void => {
     this.oComarcaService.updateOne(this.oComarca2Send).subscribe((result: IComarca) => {
       if (result) {
-        this.strResult = "La compra se ha modificado correctamente";
+        this.strResult = "La comarca se ha modificado correctamente";
       } else {
-        this.strResult = "Error en la modificación de la compra";
+        this.strResult = "Error en la modificación de la comarca";
       }
       this.openPopup();
     })

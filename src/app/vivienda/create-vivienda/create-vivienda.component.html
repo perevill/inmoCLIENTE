@@ -31,16 +31,16 @@
 
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoventa" id="comprar" />
-                    <label class="form-check-label" for="comprar"> Comprar </label>
+                    <input class="form-check-input" type="radio" name="tipoventa" id="tipoventa" value="comprar" formControlName="tipoventa"/>
+                    <label class="form-check-label" for="tipoventa"> Comprar </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoventa" id="alquilar" />
-                    <label class="form-check-label" for="alquilar"> Alquilar </label>
+                    <input class="form-check-input" type="radio" name="tipoventa" id="tipoventa" value="alquilar" formControlName="tipoventa"/>
+                    <label class="form-check-label" for="tipoventa"> Alquilar </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoventa" id="obranueva" />
-                    <label class="form-check-label" for="obranueva"> Obra nueva</label>
+                    <input class="form-check-input" type="radio" name="tipoventa" id="tipoventa" value="obranueva" formControlName="tipoventa"/>
+                    <label class="form-check-label" for="tipoventa"> Obra nueva</label>
                 </div>
             </div>
             <label for="precio" class="col-sm-2 col-form-label">Precio</label>
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <label for="idanunciante" class="col-sm-2 col-form-label">Anunciante</label>
+            <label for="anunciante" class="col-sm-2 col-form-label">Anunciante</label>
 
             <div class="col-sm-10">
                 <div class="row mb-3">
@@ -171,7 +171,7 @@
                         <div class="input-group">
                             <span class="input-group-text">{{usuario.nombre+" "+usuario.apellido1}}</span>
                             <input type="number" class="form-control" id="idanunciante" formControlName="idanunciante"
-                                (ngModelChange)="onChangeAnunciante($event)" placeholder="{{usuario.id}}"
+                                (ngModelChange)="onChangeAnunciante($event)"
                                 value="{{usuario.id}}" readonly>
 
                         </div>

@@ -32,6 +32,9 @@ export class CreateViviendaComponent implements OnInit {
   strTitlePlural: string = "Viviendas";
     usuario: IUsuario;
   aTipoVivienda: IPageTipoVivienda;
+  comprar: boolean = false;
+  alquilar: boolean = false;
+  obranueva: boolean = false;
 
 
   get f() {
@@ -74,11 +77,9 @@ export class CreateViviendaComponent implements OnInit {
       exterior: ['', ],
       descripcion: ['', [Validators.required, Validators.minLength(5)]],
       idzona: ['', [Validators.required, Validators.minLength(1)]],
-      idanunciante: ['', [Validators.required, Validators.maxLength(1)]],
+      idanunciante: [this.usuario.id, [Validators.required, Validators.maxLength(1)]],
       idtipovivienda: ['', [Validators.required, Validators.maxLength(1)]],
-      comprar: ['', [Validators.required, Validators.minLength(1)]],
-      alquilar: ['', [Validators.required, Validators.minLength(1)]],
-      obranueva: ['', [Validators.required, Validators.minLength(1)]],
+      tipoventa: ['',]
 
 
     });
@@ -86,6 +87,16 @@ export class CreateViviendaComponent implements OnInit {
 
   onSubmit(): void {
     if (this.oForm) {
+      console.log(this.oForm.value.tipoventa);
+      if(this.oForm.value.tipoventa == "comprar"){
+        this.comprar = true;
+      }
+      if(this.oForm.value.tipoventa == "alquilar"){
+        this.alquilar = true;
+      }
+      if(this.oForm.value.tipoventa == "obranueva"){
+        this.obranueva = true;
+      }
       this.Vivienda = {
         id: null,
         ubicacion: this.oForm.value.ubicacion,
@@ -100,17 +111,17 @@ export class CreateViviendaComponent implements OnInit {
         conservacion: this.oForm.value.conservacion,
         descripcion: this.oForm.value.descripcion,
         anunciante:{
-          id:this.oForm.value.anunciante
+          id:this.oForm.value.idanunciante
         },
         zona:{
-          id:this.oForm.value.zona
+          id:this.oForm.value.idzona
         },
         tipovivienda:{
-          id:this.oForm.value.tipovivienda
+          id:this.oForm.value.idtipovivienda
         },
-        comprar: this.oForm.value.comprar,
-        obranueva: this.oForm.value.obranueva,
-        alquilar: this.oForm.value.alquilar,
+        comprar:this.comprar ,
+        obranueva: this.obranueva,
+        alquilar: this.alquilar,
 
 
       };
@@ -119,18 +130,19 @@ export class CreateViviendaComponent implements OnInit {
   }
 
   new = (): void => {
-    this.oViviendaService
-      .newOne(this.Vivienda)
-      .subscribe((id: number) => {
-        if (id) {
-          this.id = id;
-          this.strResult = 'El usuario se ha creado correctamente';
-        } else {
-          this.strResult = 'Error en la creación del registro';
-        }
-        this.openPopup();
-      });
-  };
+    console.log(this.Vivienda);
+    this.oViviendaService.newOne(this.Vivienda).subscribe((id: any) => {
+      if (id) {
+        this.id = JSON.parse(JSON.stringify(id));
+
+        this.strResult = "La "+this.strEntity +" se ha creado correctamente";
+      } else {
+        this.strResult = "Error en la creación de la "+this.strEntity;
+      }
+
+      this.openPopup();
+    })
+  }
 
   goBack(): void {
     this.oLocation.back();

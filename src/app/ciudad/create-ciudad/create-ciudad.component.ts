@@ -71,7 +71,7 @@ export class CreateCiudadComponent implements OnInit {
       .subscribe((oCiudad: ICiudad) => {
         if (oCiudad.id) {
           this.id = oCiudad.id;
-          this.strResult = this.strTitleSingular + ' creado correctamente con id=' + oCiudad.id;
+          this.strResult = this.strTitleSingular + ' creada correctamente con id=' + oCiudad.id;
         } else {
           this.strResult = this.strTitleSingular + ': error en la creación del registro';
         }
